@@ -1,0 +1,96 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 400;
+}
+
+/* Desktop Menu */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 300px;
+    background-color: #F5F3EF;
+}
+
+.menu-left, .menu-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Desktop Footer */
+
+footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px 300px;
+    gap: 30px;
+    background-color: #FFFFFF;
+}
+
+/* Home Page */
+
+.home-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 300px;
+    background-color: #F5F3EF;
+}
+
+.home-cta-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+
+.home-cta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+
+/* Book List Page */
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    background-color: #F5F3EF;
+    padding: 20px;
+}
+
+.book-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+
