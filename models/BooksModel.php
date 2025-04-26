@@ -36,6 +36,21 @@ class BooksModel extends Model
     }
 
     /**
+     * Get all books of a user
+     *
+     * @param int $userId
+     * @return array
+     */
+    public function getUserBooks(int $userId): array
+    {
+        $stmt = $this->getDb()->prepare(
+            "SELECT * FROM {$this->table} WHERE ownerId = :ownerId ORDER BY created_at DESC"
+        );
+        $stmt->execute(['ownerId' => $userId]);
+        return $stmt->fetchAll();
+    }
+
+    /**
      * Create a new book
      * @param array $data
      * @return bool
