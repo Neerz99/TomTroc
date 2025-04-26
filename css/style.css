@@ -93,4 +93,29 @@ footer {
 
 }
 
+/* Account Page */
 
+.account-book-list {
+
+}
+
+.account-book-list-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.account-book-list-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: fill;
+}
+
+.account-book-list-item-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 128px;
+    font-style: italic;
+}

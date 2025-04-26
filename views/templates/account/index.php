@@ -5,23 +5,21 @@
 <p><?= htmlspecialchars($bio) ?></p>
 <p><a href="<?= Utils::url('user','logout') ?>">Déconnexion</a></p>
 
-
-<h1><?= htmlspecialchars($title) ?></h1>
-
-<p>Bonjour <?= htmlspecialchars($username) ?> !</p>
-
 <h2>Mes livres mis en échange</h2>
 
 <?php if (empty($books)): ?>
     <p>Vous n’avez pas encore de livre à l’échange.</p>
 <?php else: ?>
-    <ul>
+    <ul class="account-book-list">
         <?php foreach ($books as $b): ?>
-            <li>
-                <img src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars($b['title']) ?>">
-                <a href="<?= Utils::url('books','detail',[$b['id']]) ?>">
-                    <?= htmlspecialchars($b['title']) ?>
-                </a>
+            <li class="account-book-list-item">
+                <img class="account-book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars($b['title']) ?>">
+                <p class="account-book-list-item-title"><?= htmlspecialchars($b['title']) ?></p>
+                <p class="account-book-list-item-author"><?= htmlspecialchars($b['author']) ?></p>
+                <p class="account-book-list-item-description"><?= htmlspecialchars($b['description']) ?></p>
+                <p class="account-book-list-item-status"><?= htmlspecialchars($b['status']) ?></p>
+                <a class="account-book-list-item-edit" href="/">Éditer</a>
+                <a class="account-book-list-item-delete" href="/">Supprimer</a>
             </li>
         <?php endforeach; ?>
     </ul>

@@ -68,7 +68,7 @@ class BooksModel extends Model
             'a' => $data['author'],
             'i' => $data['imageUrl'] ?? null,
             'd' => $data['description'] ?? null,
-            's' => $data['status'] ?? 'Available'
+            's' => $data['status'] ?? 'Disponible',
         ]);
     }
 }
