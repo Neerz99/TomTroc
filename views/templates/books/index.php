@@ -1,7 +1,5 @@
 <h1><?= htmlspecialchars($title) ?></h1>
 
-<a href="/TomTroc/books/add" class="btn" style="color: red;">Ajouter un livre A DEGAGER !</a>
-
 <ul class="book-list">
     <?php foreach ($books as $b): ?>
         <li class="book-list-item">

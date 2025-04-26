@@ -23,7 +23,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
         </div>
         <div class="menu-right">
             <a href="/TomTroc/">Messagerie</a>
-            <a href="/TomTroc/">Mon Compte</a>
+            <a href="/TomTroc/account">Mon Compte</a>
             <a href="/TomTroc/user/login">Connexion</a>
         </div>
     </nav>

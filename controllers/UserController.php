@@ -13,6 +13,7 @@ class UserController extends Controller
             $user = $userModel->login($email, $password);
             if ($user) {
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
                 Utils::redirect('books', 'index');
             } else {
                 $error = 'Email ou mot de passe invalide.';
@@ -37,7 +38,7 @@ class UserController extends Controller
     public function isLogged()
     {
         if (!isset($_SESSION['user_id'])) {
-            Utils::redirect('login', 'index');
+            Utils::redirect('user', 'login');
         }
     }
 }
