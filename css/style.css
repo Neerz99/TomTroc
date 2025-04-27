@@ -95,6 +95,13 @@ footer {
 
 /* Account Page */
 
+.account-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .account-book-list {
 
 }
@@ -102,7 +109,6 @@ footer {
 .account-book-list-item {
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
 }
 
 .account-book-list-item-image {

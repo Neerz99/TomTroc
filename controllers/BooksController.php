@@ -8,7 +8,7 @@ class BooksController extends Controller
     public function index()
     {
         $model = new BooksModel();
-        $books = $model->findAll();
+        $books = $model->findAllWithOwners();
 
         $this->render('books/index', [
             'title' => 'Nos livres à l’échange',

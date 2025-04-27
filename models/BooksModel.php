@@ -51,6 +51,24 @@ class BooksModel extends Model
     }
 
     /**
+     * Get all books of a user with their owner's name
+     *
+     * @return array
+     */
+    public function findAllWithOwners(): array
+    {
+        $sql = "
+          SELECT
+            b.*, 
+            u.username AS ownerName
+          FROM {$this->table} b
+          LEFT JOIN users u ON b.ownerId = u.id
+          ORDER BY b.created_at DESC
+        ";
+        return $this->getDb()->query($sql)->fetchAll();
+    }
+
+    /**
      * Create a new book
      * @param array $data
      * @return bool

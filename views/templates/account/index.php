@@ -1,9 +1,9 @@
 <h1><?= htmlspecialchars($title) ?></h1>
 
-<img src="<?= htmlspecialchars($avatarUrl) ?>" alt="Avatar de <?= htmlspecialchars($username) ?>">
-<p>Bonjour <?= htmlspecialchars($username) ?> !</p>
-<p><?= htmlspecialchars($bio) ?></p>
-<p><a href="<?= Utils::url('user','logout') ?>">Déconnexion</a></p>
+<img class="account-image" src="<?= htmlspecialchars($avatarUrl) ?>" alt="Avatar de <?= htmlspecialchars($username) ?>">
+<p class="account-hello" >Bonjour <?= htmlspecialchars($username) ?> !</p>
+<p class="account-bio" ><?= htmlspecialchars($bio) ?></p>
+<p class="account-logout" ><a href="<?= Utils::url('user','logout') ?>">Déconnexion</a></p>
 
 <h2>Mes livres mis en échange</h2>
 
