@@ -31,9 +31,14 @@ class BooksController extends Controller
             exit;
         }
 
+        // Get the owner of the book
+        $ownerModel = new UserModel();
+        $owner = $ownerModel->find($book['ownerId']);
+
         $this->render('books/detail', [
             'title' => 'Détail du livre',
-            'book'  => $book
+            'book'  => $book,
+            'owner' => $owner
         ]);
     }
 

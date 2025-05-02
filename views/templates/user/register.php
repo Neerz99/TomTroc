@@ -4,10 +4,10 @@
     <p class="error"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 
-<form method="post" action="/TomTroc/user/register">
+<form method="post" action="<?= Utils::url('user','register') ?>">
     <div>
-        <label>Nom :</label>
-        <input type="text" name="name" required>
+        <label>Nom d’utilisateur :</label>
+        <input type="text" name="username" required>
     </div>
     <div>
         <label>Email :</label>
@@ -17,7 +17,9 @@
         <label>Mot de passe :</label>
         <input type="password" name="password" required>
     </div>
-    <button type="submit">S'inscrire</button>
+    <div>
+        <label>Confirmer le mot de passe :</label>
+        <input type="password" name="password2" required>
+    </div>
+    <button type="submit">S’inscrire</button>
 </form>
-
-<p><a href="/TomTroc/user/login">Déjà inscrit ? Connectez-vous ici</a></p>

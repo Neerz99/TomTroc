@@ -1,3 +1,7 @@
+<?php
+global $title;
+?>
+
 <h1><?= htmlspecialchars($title) ?></h1>
 
 <?php if (!empty($error)): ?>

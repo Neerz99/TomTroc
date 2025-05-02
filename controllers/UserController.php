@@ -2,6 +2,47 @@
 
 class UserController extends Controller
 {
+
+    public function register()
+    {
+        $error = null;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Get and sanitize the data from the form
+            $username = Utils::post('username');
+            $email    = Utils::post('email');
+            $pass     = $_POST['password'] ?? '';
+            $pass2    = $_POST['password2'] ?? '';
+
+            // Basic validation
+            if (empty($username) || empty($email) || empty($pass)) {
+                $error = 'Tous les champs sont obligatoires.';
+            } elseif ($pass !== $pass2) {
+                $error = 'Les mots de passe ne correspondent pas.';
+            } else {
+                // Create user with UserModel
+                $userModel = new UserModel();
+                if ($userModel->create([
+                    'username'   => $username,
+                    'email'      => $email,
+                    'password'   => $pass,
+                    'avatar_url' => $avatar ?? 'https://picsum.photos/200/300',
+                ])) {
+                    // Redirect to login page
+                    Utils::redirect('user','login');
+                } else {
+                    $error = 'Impossible de créer votre compte.';
+                }
+            }
+        }
+
+        $this->render('user/register', [
+            'title' => 'Inscription',
+            'error' => $error
+        ]);
+    }
+
+
+
     public function login()
     {
         $error = null;

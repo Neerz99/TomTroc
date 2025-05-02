@@ -17,7 +17,7 @@ CREATE TABLE books (
                        author VARCHAR(255) NOT NULL,
                        imageUrl VARCHAR(255) NULL,
                        description TEXT NULL,
-                       status ENUM('Available','Unavailable') NOT NULL DEFAULT 'Available',
+                       status ENUM('Disponible','Indisponible') NOT NULL DEFAULT 'Disponible',
                        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                        FOREIGN KEY (ownerId) REFERENCES users(id) ON DELETE CASCADE
 );

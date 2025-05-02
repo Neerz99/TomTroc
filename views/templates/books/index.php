@@ -7,7 +7,7 @@
                 <img src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars($b['title']) ?>">
             </a>
             <?= htmlspecialchars($b['title']) ?> par <?= htmlspecialchars($b['author']) ?>
-            <p>Vendu par : <a href="/"><?=htmlspecialchars($b['ownerName']) ?></a></p>
+            <p>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars($b['ownerName']) ?></a></p>
         </li>
     <?php endforeach; ?>
 </ul>

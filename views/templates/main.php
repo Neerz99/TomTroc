@@ -22,9 +22,14 @@ $content = $content ?? '<p>Aucun Contenu</p>';
             <a href="/TomTroc/books">Nos livres à l'échange</a>
         </div>
         <div class="menu-right">
-            <a href="/TomTroc/">Messagerie</a>
-            <a href="/TomTroc/account">Mon Compte</a>
-            <a href="/TomTroc/user/login">Connexion</a>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <a href="/TomTroc/conversation">Messagerie</a>
+                <a href="/TomTroc/account">Mon Compte</a>
+                <a href="/TomTroc/user/logout">Déconnexion</a>
+            <?php else: ?>
+                <a href="/TomTroc/user/login">Connexion</a>
+                <a href="/TomTroc/user/register">Inscription</a>
+            <?php endif; ?>
         </div>
     </nav>
 </header>
