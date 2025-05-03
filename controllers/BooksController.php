@@ -48,12 +48,35 @@ class BooksController extends Controller
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Suppose that the user is logged in and $_SESSION['user_id'] is set !!! TO VERIFY
+
+            $imagePath = null;
+            if (!empty($_FILES['image']['tmp_name'])) {
+                $allowedTypes = ['image/jpeg','image/png','image/gif'];
+                $type = $_FILES['image']['type'];
+                $size = $_FILES['image']['size'];
+
+                if (in_array($type, $allowedTypes) && $size <= 3000000) {
+                    $ext       = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                    $filename  = uniqid('book_', true) . '.' . $ext;
+                    $destFs    = UPLOAD_DIR . $filename; // Path to the file on the server
+                    $destUrl   = UPLOAD_URL . '/' . $filename; // URL to access the file
+
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $destFs)) {
+                        $imagePath = $destUrl;
+                    } else {
+                        $error = "Erreur lors du déplacement de l'image.";
+                    }
+                } else {
+                    $error = "Format invalide ou fichier trop volumineux (max 3 Mo).";
+                }
+            }
+
+
             $data = [
                 'ownerId'     => $_SESSION['user_id'],
                 'title'       => Utils::sanitize($_POST['title'] ?? ''),
                 'author'      => Utils::sanitize($_POST['author'] ?? ''),
-                'imageUrl'    => Utils::sanitize($_POST['imageUrl'] ?? ''),
+                'imageUrl'    => $imagePath,
                 'description' => Utils::sanitize($_POST['description'] ?? ''),
                 'status'      => 'Available'
             ];

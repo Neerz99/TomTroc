@@ -1,6 +1,4 @@
-<?php
-global $title;
-?>
+<?php global $title; ?>
 
 <h1><?= htmlspecialchars($title) ?></h1>
 
@@ -8,7 +6,7 @@ global $title;
     <p class="error"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 
-<form method="post" action="/TomTroc/books/add">
+<form method="post" action="<?= Utils::url('books','add') ?>" enctype="multipart/form-data">
     <div>
         <label>Titre :</label>
         <input type="text" name="title" required>
@@ -18,8 +16,8 @@ global $title;
         <input type="text" name="author" required>
     </div>
     <div>
-        <label>URL de l’image :</label>
-        <input type="text" name="imageUrl">
+        <label>Image du livre :</label>
+        <input type="file" name="image" accept="image/*">
     </div>
     <div>
         <label>Description :</label>
@@ -28,4 +26,4 @@ global $title;
     <button type="submit">Créer</button>
 </form>
 
-<p><a href="/TomTroc/books/index">← Retour à la liste</a></p>
+<p><a href="<?= Utils::url('books','index') ?>">← Retour à la liste</a></p>
