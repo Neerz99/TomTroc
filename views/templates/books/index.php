@@ -6,9 +6,11 @@
             <a href="/TomTroc/books/detail/<?= $b['id'] ?>">
                 <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars($b['title']) ?>">
             </a>
-            <p class="book-list-item-title"><?= htmlspecialchars($b['title']) ?></p>
-            <p class="book-list-item-author"><?= nl2br(htmlspecialchars($b['author'])) ?></p>
-            <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars($b['ownerName']) ?></a></em></p>
+            <div class="book-list-item-info">
+                <p class="book-list-item-title"><?= htmlspecialchars($b['title']) ?></p>
+                <p class="book-list-item-author"><?= nl2br(htmlspecialchars($b['author'])) ?></p>
+                <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars($b['ownerName']) ?></a></em></p>
+            </div>
         </li>
     <?php endforeach; ?>
 </ul>

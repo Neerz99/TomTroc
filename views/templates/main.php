@@ -17,7 +17,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
 <header>
     <nav>
         <div class="menu-left">
-            <a href="/TomTroc/"><img src="/TomTroc/img/logo.png" alt="Logo TomTroc"></a>
+            <a href="/TomTroc/"><img class="logo" src="/TomTroc/assets/images/tomtroc.png" alt="Logo TomTroc"></a>
             <a href="/TomTroc/">Accueil</a>
             <a href="/TomTroc/books">Nos livres à l'échange</a>
         </div>
@@ -40,7 +40,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
     <a href="/TomTroc/">Politique de confidentialité</a>
     <a href="/TomTroc/">Mentions légales</a>
     <p>TomTroc ©</p>
-    <img src="/TomTroc/img/logo-alt.png" alt="Logo TomTroc">
+    <img class="logo-alt" src="/TomTroc/assets/images/tomtroc-alt.png" alt="Logo TomTroc">
 </footer>
 </body>
 </html>
