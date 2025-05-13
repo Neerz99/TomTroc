@@ -94,4 +94,35 @@ class BooksController extends Controller
             'error' => $error ?? null
         ]);
     }
+
+    /**
+     * Display the search results.
+     */
+
+    public function search(): void
+    {
+        $search = trim($_GET['search'] ?? '');
+
+        if ($search === '') {
+            $error = "Veuillez entrer un mot";
+            // Does not interact with the database
+            $books = [];
+        } else {
+            $model = new BooksModel();
+            $books = $model->search($search);
+
+            if (empty($books)) {
+                $error = "Aucun livre trouvé pour « {$search} ».";
+            }
+        }
+
+        // Render the view
+        $this->render('books/search', [
+            'title'  => 'Résultats de la recherche pour « ' . htmlspecialchars($search, ENT_QUOTES, 'UTF-8') . ' »',
+            'books'  => $books,
+            'error'  => $error ?? null,
+            'search' => htmlspecialchars($search, ENT_QUOTES, 'UTF-8'),
+        ]);
+    }
+
 }

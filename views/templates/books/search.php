@@ -18,4 +18,8 @@
             </div>
         </li>
     <?php endforeach; ?>
+    <?php if (!empty($error)): ?>
+        <p class="error"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
+    <?php endif; ?>
+
 </ul>

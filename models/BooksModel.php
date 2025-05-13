@@ -89,4 +89,16 @@ class BooksModel extends Model
             's' => $data['status'] ?? 'Disponible',
         ]);
     }
+
+    /**
+     * Get all books from a search
+     */
+    public function search($search): array
+    {
+        $stmt = $this->getDb()->prepare(
+            "SELECT * FROM {$this->table} WHERE title LIKE :search OR author LIKE :search"
+        );
+        $stmt->execute(['search' => '%' . $search . '%']);
+        return $stmt->fetchAll();
+    }
 }
