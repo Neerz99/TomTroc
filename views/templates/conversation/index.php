@@ -7,7 +7,7 @@
         <?php foreach ($conversations as $c): ?>
             <li>
                 <a href="<?= Utils::url('conversation','view',[$c['id']]) ?>">
-                    Conversation avec <?= htmlspecialchars($c['otherUsername']) ?>
+                    Conversation avec <?= htmlspecialchars_decode($c['otherUsername']) ?>
                 </a>
             </li>
         <?php endforeach; ?>

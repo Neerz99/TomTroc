@@ -9,12 +9,12 @@
     <?php foreach ($books as $b): ?>
         <li class="book-list-item">
             <a href="/TomTroc/books/detail/<?= $b['id'] ?>">
-                <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars($b['title']) ?>">
+                <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars_decode($b['title']) ?>">
             </a>
             <div class="book-list-item-info">
-                <p class="book-list-item-title"><?= htmlspecialchars($b['title']) ?></p>
-                <p class="book-list-item-author"><?= nl2br(htmlspecialchars($b['author'])) ?></p>
-                <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars($b['ownerName']) ?></a></em></p>
+                <p class="book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
+                <p class="book-list-item-author"><?= nl2br(htmlspecialchars_decode($b['author'])) ?></p>
+                <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars_decode($b['ownerName']) ?></a></em></p>
             </div>
         </li>
     <?php endforeach; ?>

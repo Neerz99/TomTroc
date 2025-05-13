@@ -78,7 +78,7 @@ class BooksController extends Controller
                 'author'      => Utils::sanitize($_POST['author'] ?? ''),
                 'imageUrl'    => $imagePath,
                 'description' => Utils::sanitize($_POST['description'] ?? ''),
-                'status'      => 'Available'
+                'status'      => 'Disponible'
             ];
             $model = new BooksModel();
             if ($model->create($data)) {

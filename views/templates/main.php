@@ -12,6 +12,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/TomTroc/css/style.css">
+    <link rel="icon" href="/TomTroc/assets/images/tomtroc-alt.png">
 </head>
 <body>
 <header>

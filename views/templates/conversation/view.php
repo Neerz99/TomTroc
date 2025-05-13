@@ -6,8 +6,8 @@
     <?php else: ?>
         <?php foreach ($messages as $m): ?>
             <div class="msg <?= $m['senderName'] === $_SESSION['username'] ? 'sent' : 'received' ?>">
-                <strong><?= htmlspecialchars($m['senderName']) ?> :</strong>
-                <p><?= nl2br(htmlspecialchars($m['content'])) ?></p>
+                <strong><?= htmlspecialchars_decode($m['senderName']) ?> :</strong>
+                <p><?= nl2br(htmlspecialchars_decode($m['content'])) ?></p>
                 <small><?= htmlspecialchars($m['timestamp']) ?></small>
             </div>
         <?php endforeach; ?>
