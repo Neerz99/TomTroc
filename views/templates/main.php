@@ -13,6 +13,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/TomTroc/css/style.css">
     <link rel="icon" href="/TomTroc/assets/images/tomtroc-alt.png">
+    <script src="https://kit.fontawesome.com/182cba9089.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>

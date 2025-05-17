@@ -1,9 +1,12 @@
-<h1><?= htmlspecialchars($title) ?></h1>
-
-<form method="GET" action="/TomTroc/books/search">
-    <input type="text" name="search" placeholder="Rechercher un livre">
-    <input type="submit" value="Rechercher">
-</form>
+<div class="book-list-header">
+    <h1><?= htmlspecialchars($title) ?></h1>
+    <form class="book-list-searchbar" method="GET" action="/TomTroc/books/search">
+        <div class="book-list-searchbar-wrapper">
+            <i class="fas fa-search"></i>
+            <input class="book-list-searchbar-input" type="text" name="search" placeholder="Rechercher un livre">
+        </div>
+    </form>
+</div>
 
 <ul class="book-list">
     <?php foreach ($books as $b): ?>

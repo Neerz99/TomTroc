@@ -70,6 +70,7 @@ class BooksModel extends Model
 
     /**
      * Create a new book
+     *
      * @param array $data
      * @return bool
      */
@@ -91,14 +92,30 @@ class BooksModel extends Model
     }
 
     /**
-     * Get all books from a search
+     * Search for books by title or author
+     *
+     * @param string $search
+     * @return array
      */
-    public function search($search): array
+    public function search(string $search): array
     {
-        $stmt = $this->getDb()->prepare(
-            "SELECT * FROM {$this->table} WHERE title LIKE :search OR author LIKE :search"
-        );
-        $stmt->execute(['search' => '%' . $search . '%']);
+        $sql = "
+        SELECT
+            b.*,
+            u.username AS ownerName
+        FROM {$this->table} AS b
+        LEFT JOIN users u ON b.ownerId = u.id
+        WHERE b.title  LIKE :term
+           OR b.author LIKE :term
+        ORDER BY b.created_at DESC
+    ";
+
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([
+            'term' => '%' . $search . '%'
+        ]);
+
         return $stmt->fetchAll();
     }
+
 }
