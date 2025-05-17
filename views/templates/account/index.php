@@ -7,6 +7,8 @@
 
 <h2>Mes livres mis en échange</h2>
 
+<a href="/TomTroc/books/add">Ajouter un livre</a>
+
 <?php if (empty($books)): ?>
     <p>Vous n’avez pas encore de livre à l’échange.</p>
 <?php else: ?>
@@ -24,5 +26,4 @@
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-<a href="/TomTroc/books/add">Ajouter un livre</a>
 <a href="<?= Utils::url('books','add') ?>">

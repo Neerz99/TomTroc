@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/models/BooksModel.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/models/UserModel.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/tomtroc.sql" dialect="MySQL" />
   </component>
 </project>

@@ -55,7 +55,7 @@ class BooksController extends Controller
                 $type = $_FILES['image']['type'];
                 $size = $_FILES['image']['size'];
 
-                if (in_array($type, $allowedTypes) && $size <= 3000000) {
+                if (in_array($type, $allowedTypes) && $size <= 5000000) {
                     $ext       = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
                     $filename  = uniqid('book_', true) . '.' . $ext;
                     $destFs    = UPLOAD_DIR . $filename; // Path to the file on the server

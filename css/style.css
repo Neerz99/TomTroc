@@ -1,3 +1,10 @@
+/* Global Variables */
+:root {
+    --nav-height: 100px;
+    --footer-height: 60px;
+}
+/* Global Variable END */
+
 /* CSS Reset */
 * {
     margin: 0;
@@ -5,6 +12,7 @@
     box-sizing: border-box;
     list-style: none;
 }
+/* CSS Reset END */
 
 /* Global Styles */
 body {
@@ -17,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', sans-serif;
     font-weight: 400;
 }
+/* Global Styles END */
 
 /* Desktop Menu */
 nav {
@@ -25,6 +34,7 @@ nav {
     align-items: center;
     padding: 20px 300px;
     background-color: #F5F3EF;
+    height: var(--nav-height);
 }
 
 .menu-left, .menu-right {
@@ -40,6 +50,7 @@ nav {
 .logo-alt {
     height: 20px;
 }
+/* Desktop Menu END */
 
 /* Desktop Footer */
 footer {
@@ -49,7 +60,9 @@ footer {
     padding: 20px 300px;
     gap: 30px;
     background-color: #FFFFFF;
+    height: var(--footer-height);
 }
+/* Desktop Footer END */
 
 /* Home Page */
 .home-cta {
@@ -77,6 +90,7 @@ footer {
     text-align: center;
     width: 50%;
 }
+/* Home Page END */
 
 /* Book List Page */
 .book-list {
@@ -118,10 +132,27 @@ footer {
     white-space: nowrap;
     max-width: 200px;
 }
+/* Book List Page END */
 
 /* Book details page */
+.book-details-container {
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    display: grid;
+    grid-template-columns: 50% 50%;
+    overflow: hidden;
+}
 
+.book-details-image {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
+.book-details-info {
+    flex: 1 1 0;
+    padding-right: 0.5rem;
+}
+/* Book details page END */
 
 /* Account Page */
 .account-image {
@@ -154,3 +185,4 @@ footer {
     width: 128px;
     font-style: italic;
 }
+/* Account Page END */

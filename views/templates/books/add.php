@@ -17,7 +17,7 @@
     </div>
     <div>
         <label>Image du livre :</label>
-        <input type="file" name="image" accept="image/*">
+        <input type="file" size="5000000" name="image" accept=".jpg,.jpeg,.png,.gif">
     </div>
     <div>
         <label>Description :</label>
