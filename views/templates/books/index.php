@@ -8,17 +8,25 @@
     </form>
 </div>
 
-<ul class="book-list">
-    <?php foreach ($books as $b): ?>
-        <li class="book-list-item">
-            <a href="/TomTroc/books/detail/<?= $b['id'] ?>">
-                <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars_decode($b['title']) ?>">
-            </a>
-            <div class="book-list-item-info">
-                <p class="book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
-                <p class="book-list-item-author"><?= nl2br(htmlspecialchars_decode($b['author'])) ?></p>
-                <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars_decode($b['ownerName']) ?></a></em></p>
-            </div>
-        </li>
-    <?php endforeach; ?>
-</ul>
+<div class="book-list-wrapper">
+    <ul class="book-list">
+        <?php foreach ($books as $b): ?>
+            <li class="book-list-item">
+                <a class="book-list-item-container" href="/TomTroc/books/detail/<?= $b['id'] ?>">
+                    <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars_decode($b['title']) ?>">
+                    <?php if ($b['status'] === 'Indisponible'): ?>
+                        <p class="book-list-item-status">
+                            <?= htmlspecialchars('Indisponible') ?>
+                        </p>
+                    <?php endif; ?>
+                </a>
+
+                <div class="book-list-item-info">
+                    <p class="book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
+                    <p class="book-list-item-author"><?= nl2br(htmlspecialchars_decode($b['author'])) ?></p>
+                    <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars_decode($b['ownerName']) ?></a></em></p>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

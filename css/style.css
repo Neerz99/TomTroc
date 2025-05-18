@@ -129,12 +129,18 @@ footer {
     border-radius: 6px;
 }
 
+.book-list-wrapper {
+    padding: 0 20px;
+}
+
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     background-color: var(--bg-color);
-    padding: 0 200px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
 .book-list-item {
@@ -146,10 +152,24 @@ footer {
     border-radius: 0 0 10px 10px;
 }
 
+.book-list-item-container {
+    position: relative;
+}
+
 .book-list-item a {
     width: 200px;
     justify-content: center;
     align-items: center;
+}
+
+.book-list-item-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 .book-list-item-info {
@@ -160,6 +180,7 @@ footer {
 .book-list-item-title {
     font-size: 16px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .book-list-item-author {
