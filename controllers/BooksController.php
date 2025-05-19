@@ -125,4 +125,25 @@ class BooksController extends Controller
         ]);
     }
 
+    /**
+     * Book deletion
+     */
+    public function delete($id)
+    {
+        $model = new BooksModel();
+        $book = $model->find((int)$id);
+        if (!$book) {
+            http_response_code(404);
+            echo "<h1>Erreur 404</h1><p>Livre introuvable.</p>";
+            exit;
+        }
+        if ($book['ownerId'] != $_SESSION['user_id']) {
+            http_response_code(403);
+            echo "<h1>Erreur 403</h1><p>Vous n'avez pas le droit de supprimer ce livre.</p>";
+            exit;
+        }
+
+        $model->delete((int)$id);
+        Utils::redirect('account');
+    }
 }

@@ -10,14 +10,19 @@ class Utils {
      * @param array  $params
      * @return string
      */
-    public static function url(string $controller, string $action = 'index', array $params = []): string
+    public static function url(string $controller, string $action = 'index', $params = []): string
     {
+        if (!is_array($params)) {
+            $params = [ $params ];
+        }
+
         $url = BASE_PATH . '/' . $controller . '/' . $action;
         if (!empty($params)) {
             $url .= '/' . implode('/', array_map('urlencode', $params));
         }
         return $url;
     }
+
 
     /**
      * Redirect to a specific URL.

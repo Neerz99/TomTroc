@@ -21,7 +21,7 @@
                 <p class="account-book-list-item-description"><?= htmlspecialchars_decode($b['description']) ?></p>
                 <p class="account-book-list-item-status"><?= htmlspecialchars($b['status']) ?></p>
                 <a class="account-book-list-item-edit" href="/">Éditer</a>
-                <a class="account-book-list-item-delete" href="/">Supprimer</a>
+                <a class="account-book-list-item-delete" href="<?= Utils::url('books', 'delete', ($b['id'])) ?>">Supprimer</a>
             </li>
         <?php endforeach; ?>
     </ul>

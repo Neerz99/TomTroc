@@ -118,4 +118,14 @@ class BooksModel extends Model
         return $stmt->fetchAll();
     }
 
+    /**
+     * Delete a book by its ID
+     */
+    public function delete(int $id): bool
+    {
+        $stmt = $this->getDb()->prepare(
+            "DELETE FROM {$this->table} WHERE id = :id"
+        );
+        return $stmt->execute(['id' => $id]);
+    }
 }
