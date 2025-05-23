@@ -15,6 +15,7 @@ $content = $content ?? '<p>Aucun Contenu</p>';
     <link rel="stylesheet" href="/TomTroc/css/style.css">
     <link rel="icon" href="/TomTroc/assets/images/tomtroc-alt.png">
     <script src="https://kit.fontawesome.com/182cba9089.js" crossorigin="anonymous"></script>
+    <script src="/TomTroc/js/scripts.js" defer></script>
 </head>
 <body>
 <header>

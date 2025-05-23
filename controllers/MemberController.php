@@ -24,7 +24,8 @@ class MemberController extends Controller
         $this->render('members/detail', [
             'title' => 'Détail du membre',
             'user' => $user,
-            'books' => $user['books']
+            'books' => $user['books'],
+            'createdAt' => $user['createdAt'],
         ]);
     }
 }

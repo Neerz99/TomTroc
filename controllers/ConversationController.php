@@ -98,7 +98,7 @@ class ConversationController extends Controller
 
             (new MessageModel())->sendMessage($convId, $uid, $other, $content);
         }
-        Utils::redirect('conversation', 'view', [$convId]);
+        Utils::redirect('conversation', 'index', [$convId]);
     }
 
     /**
@@ -110,6 +110,6 @@ class ConversationController extends Controller
         $uid = (int)$_SESSION['user_id'];
         $convId = (new ConversationModel())
             ->startConversation($uid, (int)$otherUserId);
-        Utils::redirect('conversation', 'view', [$convId]);
+        Utils::redirect('conversation', 'index', [$convId]);
     }
 }

@@ -35,7 +35,8 @@ class MessageModel extends Model
         $sql = "
           SELECT
             m.*,
-            u.username AS senderName
+            u.username AS senderName,
+            u.avatar_url AS senderAvatar
           FROM {$this->table} m
           JOIN users u ON u.id = m.senderId
           WHERE m.conversationId = :c

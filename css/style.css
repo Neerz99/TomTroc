@@ -312,6 +312,54 @@ footer {
 /* Book details page END */
 
 /* Account Page */
+.account-container {
+    padding: 20px 300px;
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.account-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.account-add-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 60px;
+    background-color: var(--btn-color);
+    color: #FFFFFF;
+    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin: 0 auto;
+}
+
+.account-book-list {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 32px rgba(60,60,60,0.07);
+}
+
 .account-image {
     width: 140px;
     height: 140px;
@@ -346,54 +394,152 @@ footer {
 
 /* Conversation Page */
 
+.conversation-container {
+    display: flex;
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.conversation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.conversation-list li {
+    padding: 18px 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: background 0.13s;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.conversation-list li.active,
+.conversation-list li:hover {
+    background: #e6e6de;
+}
+
+.conversation-list li a {
+    text-decoration: none;
+    color: #232323;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.conversation-item {
+    background: #ffffff;
+    flex: 1;
+    border-radius: 18px;
+    margin-left: 20px;
+    box-shadow: 0 4px 32px rgba(60,60,60,0.07);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 32px 22px 32px;
+    margin-bottom: 20px;
+}
+
+.conversation-item h1 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.conversation-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.conversation-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    border-radius: 14px;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(60,60,60,0.02);
+    position: relative;
+}
+
+.conversation-message.sent {
+    background: #f3f7fa;
+    align-self: flex-end;
+}
+
+.conversation-message.received {
+    background: #f7f6f3;
+    align-self: flex-start;
+}
+
+.conversation-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.conversation-message-sender {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: #444;
+}
+
+.conversation-message-content {
+    margin: 0 0 2px 0;
+    color: #1a1a1a;
+}
+
+.conversation-message-time {
+    font-size: 12px;
+    color: #b2b2b2;
+    align-self: flex-end;
+}
+
 .conversation-form {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 100px;
+    gap: 18px;
+    margin-top: 8px;
 }
 
 .conversation-input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80vw;
-    max-width: 800px;
-    height: 60px;
-    background-color: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    border-radius: 10px;
-    margin-right: 20px;
-    resize: none;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    align-content: center;
-    overflow: hidden;
-}
-
-.conversation-input:focus {
+    flex: 1;
+    border: none;
     outline: none;
-    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    background: #f7f6f3;
+    padding: 16px 14px;
+    font-size: 15px;
+    resize: none;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.06);
+    font-family: 'Inter', sans-serif;
 }
 
 .conversation-send {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
-    height: 60px;
-    background-color: var(--btn-color);
-    color: #FFFFFF;
-    border: 2px solid var(--btn-color);
+    background: var(--btn-color);
+    color: #ffffff;
+    border: none;
     border-radius: 10px;
+    padding: 0 34px;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px rgba(60,60,60,0.04);
 }
 
 .conversation-send:hover {
-    background-color: var(--bg-color);
-    color: var(--btn-color);
+    background: #03824c;
 }
+
 /* Conversation Page END */

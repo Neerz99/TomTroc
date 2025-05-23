@@ -26,7 +26,8 @@ class AccountController extends Controller
             'email'     => $user['email'],
             'avatarUrl' => $user['avatarUrl'],
             'bio'       => $user['bio'],
-            'books'     => $books
+            'createdAt' => $user['createdAt'],
+            'books'     => $books,
         ]);
     }
 }
