@@ -68,6 +68,10 @@ footer {
 /* Desktop Footer END */
 
 /* Home Page */
+.home-container {
+
+}
+
 .home-cta {
     display: flex;
     justify-content: space-between;
@@ -92,6 +96,36 @@ footer {
     justify-content: center;
     text-align: center;
     width: 50%;
+}
+
+.home-faq h2 {
+    text-align: center;
+}
+
+.home-faq p {
+    text-align: center;
+}
+
+.home-faq-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-faq-list-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 18%;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.home-image {
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
 }
 /* Home Page END */
 

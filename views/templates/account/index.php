@@ -8,7 +8,7 @@
                  alt="Avatar de <?= htmlspecialchars_decode($username) ?>"
             ><!--Add field to modify-->
             <p class="account-name" >Bonjour <?= htmlspecialchars_decode($username) ?> !</p>
-            <p class="account-date" >Compte créé le <?= htmlspecialchars($createdAt) ?></p>
+            <p class="account-date" >Compte créé le <?= htmlspecialchars(Utils::formatDateFr($createdAt)) ?></p>
             <p class="account-bio" ><?= htmlspecialchars_decode($bio) ?></p> <!--Add field to modify-->
         </div>
         <div class="account-info">

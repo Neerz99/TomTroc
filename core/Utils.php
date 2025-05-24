@@ -59,4 +59,61 @@ class Utils {
     {
         return isset($_POST[$key]) ? self::sanitize($_POST[$key]) : $default;
     }
+
+    /**
+     * Convert SQL date/time to french format
+     *
+     * @param string|\DateTime $date ISO or DateTime object
+     * @param string $pattern Pattern (e.g. 'd MMMM yyyy to HH:mm')
+     * @return string
+     * @throws Exception
+     */
+    public static function formatDateFr($date, string $pattern = 'd MMMM yyyy'): string
+    {
+        if (! $date instanceof \DateTime) {
+            $date = new \DateTime($date);
+        }
+        $fmt = new \IntlDateFormatter(
+            'fr_FR',
+            \IntlDateFormatter::NONE,
+            \IntlDateFormatter::NONE,
+            'Europe/Paris',
+            \IntlDateFormatter::GREGORIAN,
+            $pattern
+        );
+        return $fmt->format($date);
+    }
+
+    /**
+     * Calculates how long ago a user created their account
+     */
+    public static function membershipDuration($dateIso): string
+    {
+        // Transform to DateTime if needed
+        $start = $dateIso instanceof \DateTime
+            ? $dateIso
+            : new \DateTime($dateIso);
+
+        $now      = new \DateTime();
+        $interval = $start->diff($now);
+
+        $parts = [];
+        if ($interval->y > 0) {
+            $parts[] = $interval->y . ' ' . ($interval->y > 1 ? 'ans' : 'an');
+        }
+        if ($interval->m > 0) {
+            $parts[] = $interval->m . ' mois';
+        }
+        if ($interval->d > 0) {
+            $parts[] = $interval->d . ' jour' . ($interval->d > 1 ? 's' : '');
+        }
+
+        if (empty($parts)) {
+            return "Aujourd’hui";
+        }
+
+        // Return parts, separated by commas
+        return implode(', ', array_slice($parts, 0, 3));
+    }
+
 }
