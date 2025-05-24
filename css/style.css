@@ -319,45 +319,20 @@ footer {
 .account-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
+    gap: 30px;
 }
 
 .account-user {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-.account-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 10px;
-}
-
-.account-add-book {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    height: 60px;
-    background-color: var(--btn-color);
-    color: #FFFFFF;
-    border: 2px solid var(--btn-color);
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    margin: 0 auto;
-}
-
-.account-book-list {
-    background-color: #ffffff;
-    border-radius: 10px;
+    background: #FFFFFF;
     padding: 20px;
-    box-shadow: 0 4px 32px rgba(60,60,60,0.07);
+    border-radius: 10px;
+    width: 50%;
 }
 
 .account-image {
@@ -365,6 +340,40 @@ footer {
     height: 140px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.account-add-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    background-color: var(--btn-color);
+    color: #FFFFFF;
+    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin: 20px auto;
+}
+
+.account-book-list {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 32px rgba(60,60,60,0.07);
 }
 
 .account-book-list {

@@ -7,10 +7,9 @@
                  src="<?= htmlspecialchars($avatarUrl) ?>"
                  alt="Avatar de <?= htmlspecialchars_decode($username) ?>"
             ><!--Add field to modify-->
-            <p class="account-hello" >Bonjour <?= htmlspecialchars_decode($username) ?> !</p>
+            <p class="account-name" >Bonjour <?= htmlspecialchars_decode($username) ?> !</p>
             <p class="account-date" >Compte créé le <?= htmlspecialchars($createdAt) ?></p>
             <p class="account-bio" ><?= htmlspecialchars_decode($bio) ?></p> <!--Add field to modify-->
-            <p class="account-logout" ><a href="<?= Utils::url('user','logout') ?>">Déconnexion</a></p>
         </div>
         <div class="account-info">
         <h2>Vos informations personnelles</h2>
