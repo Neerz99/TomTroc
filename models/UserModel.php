@@ -105,6 +105,40 @@ class UserModel extends Model
     }
 
     /**
+     * Update a user.
+     * @param array $data  keys: id, username, email, bio, avatar_url, optional password
+     * @return bool
+     */
+    public function update(array $data): bool
+    {
+        $fields = [
+            'username    = :username',
+            'email       = :email',
+            'bio         = :bio',
+            'avatar_url = :avatar'
+        ];
+        $params = [
+            'username' => $data['username'],
+            'email'    => $data['email'],
+            'bio'      => $data['bio'],
+            'avatar'   => $data['avatar_url'],
+            'id'       => $data['id'],
+        ];
+
+        if (!empty($data['password'])) {
+            $fields[] = 'password = :password';
+            $params['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        }
+
+        $sql = "UPDATE {$this->table}
+                SET " . implode(', ', $fields) . "
+                WHERE id = :id";
+
+        $stmt = $this->getDb()->prepare($sql);
+        return $stmt->execute($params);
+    }
+
+    /**
      * Delete a user by its ID.
      *
      * @param int $id

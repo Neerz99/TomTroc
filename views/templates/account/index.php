@@ -6,37 +6,70 @@
             <img class="account-image"
                  src="<?= htmlspecialchars($avatarUrl) ?>"
                  alt="Avatar de <?= htmlspecialchars_decode($username) ?>"
-            ><!--Add field to modify-->
-            <p class="account-name" >Bonjour <?= htmlspecialchars_decode($username) ?> !</p>
-            <p class="account-date" >Compte créé le <?= htmlspecialchars(Utils::formatDateFr($createdAt)) ?></p>
-            <p class="account-bio" ><?= htmlspecialchars_decode($bio) ?></p> <!--Add field to modify-->
+            >
+            <p class="account-name">Bonjour <?= htmlspecialchars_decode($username) ?> !</p>
+            <p class="account-bio"><?= htmlspecialchars_decode($bio) ?></p>
+            <p class="account-date"><i class="fa-solid fa-cake-candles"></i> Membre depuis le <?= htmlspecialchars(Utils::formatDateFr($createdAt)) ?></p>
+
+            <hr>
+            <p class="account-bookshelf">Bibliothèque</p>
+            <p class="account-books-count"><i class="fa-solid fa-book"></i> <?= Utils::booksCount($books) ?> livres</p>
         </div>
+
         <div class="account-info">
-        <h2>Vos informations personnelles</h2>
-            <form method="post" action="<?= Utils::url('account', 'update') ?>">
-                <div>
-                    <label for="username">Nom d'utilisateur :</label>
-                    <input type="text" name="username" id="username" value="<?= htmlspecialchars($username) ?>" required>
+            <h2>Vos informations personnelles</h2>
+            <form
+                  class="account-info-form"
+                  method="post"
+                  action="<?= Utils::url('account', 'update') ?>"
+                  enctype="multipart/form-data"
+            >
+                <div class="account-info-edit-avatar" >
+                    <label for="avatar">Modifier avatar :</label><br>
+                    <input type="file" name="avatar" id="avatar" accept="image/*">
                 </div>
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="email" name="email" id="email" value="<?= htmlspecialchars($email) ?>" required>
+
+                <div class="account-info-edit-bio" >
+                    <label for="bio">Modifier la bio :</label><br>
+                    <textarea name="bio"
+                              id="bio"
+                              rows="3"
+                              placeholder="Votre bio…"
+                    ><?= htmlspecialchars($bio) ?></textarea>
                 </div>
-                <div for="password">
-                    <label for="password">Mot de passe :</label>
-                    <input
-                            type="password"
+
+                <div class="account-info-edit-username" >
+                    <label for="username">Nom d'utilisateur :</label><br>
+                    <input type="text"
+                           name="username"
+                           id="username"
+                           value="<?= htmlspecialchars($username) ?>"
+                           required>
+                </div>
+
+                <div class="account-info-edit-email" >
+                    <label for="email">Email :</label><br>
+                    <input type="email"
+                           name="email"
+                           id="email"
+                           value="<?= htmlspecialchars($email) ?>"
+                           required>
+                </div>
+
+                <div class="account-info-edit-password" >
+                    <label for="password">Mot de passe :</label><br>
+                    <input type="password"
                            name="password"
                            id="password"
-                           placeholder="Laissez vide si vous ne souhaitez pas changer le mot de passe"
-                    >
+                           placeholder="Laissez vide pour ne pas changer">
                 </div>
-                <button type="submit">Mettre à jour</button>
+
+                <button class="account-info-edit-submit" type="submit">Mettre à jour</button>
             </form>
         </div>
     </div>
 
-    <a class="account-add-book" href="/TomTroc/books/add">Ajouter un livre</a>
+    <a class="account-add-book" href="<?= Utils::url('books','add') ?>">Ajouter un livre</a>
 
     <?php if (empty($books)): ?>
         <p>Vous n’avez pas encore de livre à l’échange.</p>
@@ -44,16 +77,21 @@
         <ul class="account-book-list">
             <?php foreach ($books as $b): ?>
                 <li class="account-book-list-item">
-                    <img class="account-book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars_decode($b['title']) ?>">
+                    <img class="account-book-list-item-image"
+                         src="<?= htmlspecialchars($b['imageUrl']) ?>"
+                         alt="<?= htmlspecialchars_decode($b['title']) ?>">
                     <p class="account-book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
                     <p class="account-book-list-item-author"><?= htmlspecialchars_decode($b['author']) ?></p>
                     <p class="account-book-list-item-description"><?= htmlspecialchars_decode($b['description']) ?></p>
                     <p class="account-book-list-item-status"><?= htmlspecialchars($b['status']) ?></p>
                     <a class="account-book-list-item-edit" href="/">Éditer</a>
-                    <a class="account-book-list-item-delete" href="<?= Utils::url('books', 'delete', ($b['id'])) ?>">Supprimer</a>
+                    <a class="account-book-list-item-delete"
+                       href="<?= Utils::url('books','delete',[$b['id']]) ?>">
+                        Supprimer
+                    </a>
                 </li>
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-    <a href="<?= Utils::url('books','add') ?>">
+    <a href="<?= Utils::url('books','add') ?>"></a>
 </div>

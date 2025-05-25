@@ -347,7 +347,9 @@ footer {
 
 /* Account Page */
 .account-container {
-    padding: 20px 300px;
+    padding: 20px 100px;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .account-header {
@@ -369,6 +371,47 @@ footer {
     width: 50%;
 }
 
+.account-name {
+    font-size: 24px;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.account-bio {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.account-date {
+    font-size: 16px;
+    color: #A6A6A6;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.account-bookshelf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    padding: 2px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.account-books-count {
+    font-size: 20px;
+    color: #000000;
+}
+
+.account-user hr {
+    margin: 20px;
+    width: 70%;
+    border: 1px solid #E5E5E5;
+}
+
 .account-image {
     width: 140px;
     height: 140px;
@@ -387,20 +430,80 @@ footer {
     width: 50%;
 }
 
+.account-info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+.account-info-edit-avatar input::file-selector-button {
+    background: var(--bg-color);
+    border-radius: 10px;
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.account-info-edit-avatar input::file-selector-button:hover {
+    background: var(--btn-color);
+    color: #FFFFFF;
+}
+
+.account-info-edit-avatar,
+.account-info-edit-bio,
+.account-info-edit-username,
+.account-info-edit-email,
+.account-info-edit-password {
+    margin: 12px 0;
+}
+
+.account-info-edit-avatar label,
+.account-info-edit-bio label,
+.account-info-edit-username label,
+.account-info-edit-email label,
+.account-info-edit-password label {
+    color: #A6A6A6;
+}
+
+.account-info-edit-username input,
+.account-info-edit-email input,
+.account-info-edit-password input,
+.account-info-edit-bio textarea {
+    border-radius: 10px;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: #f3f7fa;
+    padding: 16px 14px;
+    font-size: 15px;
+    resize: none;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.06);
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+}
+
+.account-info-edit-submit,
 .account-add-book {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     height: 50px;
-    background-color: var(--btn-color);
-    color: #FFFFFF;
+    background-color: var(--bg-color);
+    color: var(--btn-color);
     border: 2px solid var(--btn-color);
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.1s ease;
     margin: 20px auto;
+}
+
+.account-info-edit-submit:hover,
+.account-add-book:hover {
+    background-color: var(--btn-color);
+    color: #FFFFFF;
 }
 
 .account-book-list {

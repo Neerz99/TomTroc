@@ -116,4 +116,18 @@ class Utils {
         return implode(', ', array_slice($parts, 0, 3));
     }
 
+    /**
+     * Calculates the number of books for a user
+     */
+    public static function booksCount($books): int
+    {
+        if (is_array($books)) {
+            return count($books);
+        } elseif ($books instanceof \Countable) {
+            return count($books);
+        } elseif (is_int($books)) {
+            return $books;
+        }
+        return 0; // Default to 0 if not countable
+    }
 }
