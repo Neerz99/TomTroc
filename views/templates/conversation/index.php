@@ -9,6 +9,11 @@
                 <li class="<?= $isActive ? 'active' : '' ?>">
                     <a href="<?= Utils::url('conversation','index', [$c['id']]) ?>">
                         <!-- Display name of the other user -->
+                        <img
+                                class="conversation-avatar"
+                                src="<?= htmlspecialchars($c['otherAvatar']) ?>"
+                                alt="<?= htmlspecialchars($c['otherUsername']) ?> avatar"
+                        />
                         <?= htmlspecialchars(htmlspecialchars_decode($c['otherUsername'])) ?>
                     </a>
                 </li>

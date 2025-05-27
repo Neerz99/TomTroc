@@ -1,7 +1,7 @@
 <h1><?= htmlspecialchars($title)?></h1>
 <img src="<?= htmlspecialchars($user['avatarUrl']) ?>" alt="Avatar de <?= htmlspecialchars_decode($user['username']) ?>">
 <p><strong>Nom d’utilisateur :</strong> <?= htmlspecialchars_decode($user['username']) ?></p>
-<p>Membre depuis : <?= htmlspecialchars(Utils::membershipDuration($user['createdAt'])) ?></p>
+<p>Membre depuis : <?= htmlspecialchars(Utils::calculateDuration($user['createdAt'])) ?></p>
 <?php if (!empty($user['bio'])): ?>
     <p><strong>Bio :</strong> <?= htmlspecialchars_decode($user['bio']) ?></p>
 <?php endif; ?>

@@ -85,9 +85,13 @@ class Utils {
     }
 
     /**
-     * Calculates how long ago a user created their account
+     * Calculates a time duration from a given date to now.
+     *
+     * @param DateTime|string $dateIso
+     * @return string
+     * @throws Exception
      */
-    public static function membershipDuration($dateIso): string
+    public static function calculateDuration(DateTime|string $dateIso): string
     {
         // Transform to DateTime if needed
         $start = $dateIso instanceof \DateTime
@@ -117,7 +121,7 @@ class Utils {
     }
 
     /**
-     * Calculates the number of books for a user
+     * Calculates the number of books
      */
     public static function booksCount($books): int
     {

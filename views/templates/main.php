@@ -22,14 +22,13 @@ $content = $content ?? '<p>Aucun Contenu</p>';
     <nav>
         <div class="menu-left">
             <a href="/TomTroc/"><img class="logo" src="/TomTroc/assets/images/tomtroc.png" alt="Logo TomTroc"></a>
-            <a href="/TomTroc/">Accueil</a>
-            <a href="/TomTroc/books">Nos livres à l'échange</a>
+            <a href="/TomTroc/books">Nos livres à l'échange <i class="fa-solid fa-book"></i></a>
         </div>
         <div class="menu-right">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <a href="/TomTroc/conversation">Messagerie</a>
-                <a href="/TomTroc/account">Mon Compte</a>
-                <a href="/TomTroc/user/logout">Déconnexion</a>
+                <a href="/TomTroc/conversation"><i class="fa-solid fa-comment"></i> Messagerie</a>
+                <a href="/TomTroc/account"><i class="fa-solid fa-user"></i> Mon Compte</a>
+                <a href="/TomTroc/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
             <?php else: ?>
                 <a href="/TomTroc/user/login">Connexion</a>
                 <a href="/TomTroc/user/register">Inscription</a>

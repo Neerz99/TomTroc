@@ -45,7 +45,11 @@ class ConversationModel extends Model
             CASE
               WHEN c.user1Id = :u THEN u2.username
               ELSE u1.username
-            END AS otherUsername
+            END AS otherUsername,
+            CASE
+              WHEN c.user1Id = :u THEN u2.avatar_url
+              ELSE u1.avatar_url
+            END AS otherAvatar
           FROM {$this->table} c
           JOIN users u1 ON u1.id = c.user1Id
           JOIN users u2 ON u2.id = c.user2Id

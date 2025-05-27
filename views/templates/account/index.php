@@ -35,6 +35,7 @@
                               id="bio"
                               rows="3"
                               placeholder="Votre bio…"
+                                maxlength="800"
                     ><?= htmlspecialchars($bio) ?></textarea>
                 </div>
 
@@ -43,6 +44,8 @@
                     <input type="text"
                            name="username"
                            id="username"
+                           minlength="3"
+                           maxlength="16"
                            value="<?= htmlspecialchars($username) ?>"
                            required>
                 </div>
@@ -61,6 +64,8 @@
                     <input type="password"
                            name="password"
                            id="password"
+                            minlength="10"
+                            maxlength="64"
                            placeholder="Laissez vide pour ne pas changer">
                 </div>
 
