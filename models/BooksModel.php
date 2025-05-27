@@ -128,4 +128,38 @@ class BooksModel extends Model
         );
         return $stmt->execute(['id' => $id]);
     }
+
+    /**
+     * Update a book
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function update(array $data): bool
+    {
+        $fields = [
+            'title       = :title',
+            'author      = :author',
+            'description = :description',
+            'status      = :status',
+            'imageUrl    = :imageUrl'
+        ];
+
+        $params = [
+            'title'       => $data['title'],
+            'author'      => $data['author'],
+            'description' => $data['description'],
+            'status'      => $data['status'],
+            'imageUrl'    => $data['imageUrl'],
+            'id'          => $data['id'],
+        ];
+
+        $sql = "UPDATE {$this->table}
+            SET " . implode(', ', $fields) . "
+            WHERE id = :id";
+
+        $stmt = $this->getDb()->prepare($sql);
+        return $stmt->execute($params);
+    }
+
 }

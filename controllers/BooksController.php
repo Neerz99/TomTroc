@@ -146,4 +146,88 @@ class BooksController extends Controller
         $model->delete((int)$id);
         Utils::redirect('account');
     }
+
+    /**
+     * Edit a book
+     * @param int $id
+     */
+    public function edit($id)
+    {
+        // 1) Load and authorize
+        $model = new BooksModel();
+        $book  = $model->find((int)$id);
+        if (!$book) {
+            http_response_code(404);
+            echo "<h1>Erreur 404</h1><p>Livre introuvable.</p>";
+            exit;
+        }
+        if ($book['ownerId'] != $_SESSION['user_id']) {
+            http_response_code(403);
+            echo "<h1>Erreur 403</h1><p>Accès refusé.</p>";
+            exit;
+        }
+
+        $postStatus = $_POST['status'] ?? $book['status'];
+
+        $allowed = ['Disponible','Indisponible'];
+
+        $status = in_array($postStatus, $allowed, true)
+            ? $postStatus
+            : 'Disponible';
+
+        // 2) On POST, process update + file upload
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Prepare and sanitize the data array
+            $data = [
+                'id'          => $book['id'],
+                'title'       => Utils::sanitize($_POST['title']      ?? $book['title']),
+                'author'      => Utils::sanitize($_POST['author']     ?? $book['author']),
+                'description' => Utils::sanitize($_POST['description']?? $book['description']),
+                'status'      => $status,
+                // overwrite imageUrl if a new file is uploaded
+                'imageUrl'    => $book['imageUrl'],
+            ];
+
+            // 2a) Handle the file upload not empty
+            if (!empty($_FILES['imageUrl']['tmp_name'])) {
+                $allowed = ['image/jpeg','image/png','image/gif'];
+                $type    = $_FILES['imageUrl']['type'];
+                $size    = $_FILES['imageUrl']['size'];
+                $tmp     = $_FILES['imageUrl']['tmp_name'];
+
+                if (in_array($type, $allowed) && $size <= 3 * 1024 * 1024) {
+                    $ext      = pathinfo($_FILES['imageUrl']['name'], PATHINFO_EXTENSION);
+                    $filename = uniqid('book_'.$book['id'].'_', true) . ".$ext";
+
+                    // ensure folder exists
+                    if (!is_dir(UPLOAD_DIR . 'books/')) {
+                        mkdir(UPLOAD_DIR . 'books/', 0755, true);
+                    }
+
+                    $destFs  = UPLOAD_DIR    . 'books/' . $filename;
+                    $destUrl = UPLOAD_URL     . '/books/' . $filename;
+
+                    if (move_uploaded_file($tmp, $destFs)) {
+                        $data['imageUrl'] = $destUrl;
+                    }
+                }
+            }
+
+            // 2b) Call the model
+            if ($model->update($data)) {
+                Utils::redirect('books', 'detail', [$book['id']]);
+            } else {
+                $error = "Impossible d'enregistrer les modifications.";
+            }
+        }
+
+        // 3) Render form
+        $this->render('books/edit', [
+            'title' => 'Modifier : ' . $book['title'],
+            'book'  => $book,
+            'error' => $error ?? null
+        ]);
+    }
+
+
 }
