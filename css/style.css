@@ -202,6 +202,7 @@ footer {
 .book-list-item {
     display: flex;
     width: 200px;
+    height: fit-content;
     flex-direction: column;
     justify-content: center;
     background-color: #FFFFFF;
@@ -507,7 +508,8 @@ footer {
 }
 
 .account-info-edit-submit,
-.account-add-book {
+.account-add-book,
+.book-edition-submit {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -523,7 +525,8 @@ footer {
 }
 
 .account-info-edit-submit:hover,
-.account-add-book:hover {
+.account-add-book:hover,
+.book-edition-submit:hover {
     background-color: var(--btn-color);
     color: #FFFFFF;
 }
@@ -714,3 +717,91 @@ footer {
 }
 
 /* Conversation Page END */
+
+/* Book Edition Page */
+.book-edition-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 100px;
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    width: 95%;
+    margin: 0 auto;
+}
+
+.book-edition-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.book-edition-current-image {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book-edition-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.book-edition-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-edition-field input {
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background: #F3F7FA;
+}
+
+.book-edition-field textarea {
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    resize: none;
+    font-family: 'Inter', sans-serif;
+    background: #F3F7FA;
+}
+
+.book-edition-field label {
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+
+.book-edition-field select {
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background: #F3F7FA;
+}
+
+.book-edition-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F3F7FA;
+    border: 2px dashed #A6A6A6;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+/* Book Edition Page END */
