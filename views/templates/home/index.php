@@ -7,15 +7,36 @@ $books = $books ?? [];
         <div class="home-cta-left">
             <h1><?= htmlspecialchars($title) ?></h1>
             <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres. </p>
-            <a href="/TomTroc/books"><button>Découvrir</button></a>
+            <a href="/TomTroc/books">Découvrir</a>
         </div>
         <div class="home-cta-right">
-            <img src="https://picsum.photos/200/300" alt="Image aléatoire">
+            <img src="assets/images/home-cta-right.jpg" alt="Image aléatoire">
         </div>
     </div>
     <div class="home-latest-books">
         <h2>Les derniers livres ajoutés</h2>
-        <!-- List of 4 books + see more button -->
+        <div class="book-list-wrapper">
+            <ul class="book-list">
+                <?php foreach ($latestBooks as $b): ?>
+                    <li class="book-list-item">
+                        <a class="book-list-item-container" href="/TomTroc/books/detail/<?= $b['id'] ?>">
+                            <img class="book-list-item-image" src="<?= htmlspecialchars($b['imageUrl']) ?>" alt="<?= htmlspecialchars_decode($b['title']) ?>">
+                            <?php if ($b['status'] === 'Indisponible'): ?>
+                                <p class="book-list-item-status">
+                                    <?= htmlspecialchars('Indisponible') ?>
+                                </p>
+                            <?php endif; ?>
+                        </a>
+
+                        <div class="book-list-item-info">
+                            <p class="book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
+                            <p class="book-list-item-author"><?= nl2br(htmlspecialchars_decode($b['author'])) ?></p>
+                            <p class="book-list-item-owner"><em>Vendu par : <a href="<?= Utils::url('member', 'detail', [(int)$b['ownerId']]) ?>"><?=htmlspecialchars_decode($b['ownerName']) ?></a></em></p>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
     <div class="home-faq">
         <h2>Comment ca marche ?</h2>

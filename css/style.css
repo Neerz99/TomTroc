@@ -111,6 +111,29 @@ footer {
     width: 50%;
 }
 
+.home-cta-left h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.home-cta-left a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 60px;
+    background-color: var(--btn-color);
+    color: #FFFFFF;
+    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin: 20px auto;
+}
+
 .home-cta-right {
     display: flex;
     flex-direction: column;
@@ -120,12 +143,38 @@ footer {
     width: 50%;
 }
 
+.home-cta-right img {
+    width: 100%;
+    height: auto;
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+.home-latest-books {
+    background-color: #FFFFFF;
+}
+
+.home-latest-books h2 {
+    text-align: center;
+    padding: 40px;
+    font-size: 32px;
+}
+
+.home-latest-books > .book-list-wrapper > .book-list {
+    background-color: #FFFFFF;
+    max-width: 1000px;
+}
+
 .home-faq h2 {
     text-align: center;
+    padding: 40px;
+    font-size: 32px;
 }
 
 .home-faq p {
     text-align: center;
+    padding: 0 20px;
+    margin-bottom: 40px;
 }
 
 .home-faq-list {
@@ -134,13 +183,34 @@ footer {
     gap: 20px;
 }
 
+.home-faq a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 50px;
+    background-color: var(--btn-color);
+    color: #FFFFFF;
+    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin: 40px auto;
+}
+
+.home-faq a:hover {
+    background-color: var(--bg-color);
+    color: var(--btn-color);
+}
+
 .home-faq-list-item {
     display: flex;
     align-items: center;
     text-align: center;
     width: 18%;
     background: #FFFFFF;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
 }
 
