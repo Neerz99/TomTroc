@@ -1,19 +1,20 @@
 <?php
 
-class Utils {
+class Utils
+{
 
     /**
      * Generate a URL with a format /controller/action/param1/param2...
      *
      * @param string $controller
      * @param string $action
-     * @param array  $params
+     * @param array $params
      * @return string
      */
     public static function url(string $controller, string $action = 'index', $params = []): string
     {
         if (!is_array($params)) {
-            $params = [ $params ];
+            $params = [$params];
         }
 
         $url = BASE_PATH . '/' . $controller . '/' . $action;
@@ -29,7 +30,7 @@ class Utils {
      *
      * @param string $controller
      * @param string $action
-     * @param array  $params
+     * @param array $params
      */
     public static function redirect(string $controller, string $action = 'index', array $params = []): void
     {
@@ -52,7 +53,7 @@ class Utils {
      * Get a value in $_POST or return a default value.
      *
      * @param string $key
-     * @param mixed  $default
+     * @param mixed $default
      * @return mixed
      */
     public static function post(string $key, $default = null)
@@ -70,7 +71,7 @@ class Utils {
      */
     public static function formatDateFr($date, string $pattern = 'd MMMM yyyy'): string
     {
-        if (! $date instanceof \DateTime) {
+        if (!$date instanceof \DateTime) {
             $date = new \DateTime($date);
         }
         $fmt = new \IntlDateFormatter(
@@ -98,7 +99,7 @@ class Utils {
             ? $dateIso
             : new \DateTime($dateIso);
 
-        $now      = new \DateTime();
+        $now = new \DateTime();
         $interval = $start->diff($now);
 
         $parts = [];
@@ -133,5 +134,56 @@ class Utils {
             return $books;
         }
         return 0; // Default to 0 if not countable
+    }
+
+    /**
+     * Truncate a string over x characters
+     *
+     * @param string $text
+     * @param int $limit
+     * @param string $suffix
+     * @param bool $preserveWords
+     * @param string|null $encoding
+     *
+     * @return string
+     * @throws InvalidArgumentException if $limit is less than 1
+     *
+     */
+    public static function truncate(
+        string  $text,
+        int     $limit = 100,
+        string  $suffix = '…',
+        bool    $preserveWords = true,
+        ?string $encoding = null
+    ): string
+    {
+        if ($limit < 1) {
+            throw new InvalidArgumentException('$limit must be at least 1');
+        }
+
+        $encoding ??= mb_internal_encoding();
+        $suffixLen = mb_strlen($suffix, $encoding);
+
+        if ($suffixLen >= $limit) {
+            return mb_substr($suffix, 0, $limit, $encoding);
+        }
+
+        if (mb_strlen($text, $encoding) <= $limit) {
+            return $text;
+        }
+
+        $cut = $limit - $suffixLen;
+        $snippet = mb_substr($text, 0, $cut, $encoding);
+
+        if ($preserveWords) {
+            $result = preg_replace('/\s+\S*$/u', '', $snippet);
+
+            // If preg_replace fails, $snippet remains unchanged
+            if (is_string($result)) {
+                $snippet = $result;
+            }
+        }
+
+        return rtrim($snippet) . $suffix;
     }
 }
