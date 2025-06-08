@@ -1099,3 +1099,232 @@ footer {
 }
 
 /* Login Page END */
+
+/* Add Book Page */
+
+.add-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 100px;
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    width: 95%;
+    margin: 0 auto;
+}
+
+.add-book-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.add-book-content h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.add-book-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-book-field input {
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background: #F3F7FA;
+}
+
+.add-book-field textarea {
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    resize: none;
+    font-family: 'Inter', sans-serif;
+    background: #F3F7FA;
+}
+
+.add-book-field label {
+    font-size: 16px;
+    color: #444444;
+    margin: 20px 0 0 0;
+}
+
+.add-book-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: var(--btn-color);
+    color: #FFFFFF;
+    border: 2px solid var(--btn-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin: 20px 0;
+    padding: 0 200px;
+}
+
+.add-book-submit:hover {
+    background-color: var(--bg-color);
+    color: var(--btn-color);
+}
+
+.add-book-image-current {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.add-book-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F3F7FA;
+    border: 2px dashed #A6A6A6;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+/* Add Book Page END */
+
+/* Public Profile Page */
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    overflow: hidden;
+}
+
+.profile-card {
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.profile-field {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.profile-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--btn-color);
+    text-decoration: none;
+    transition: background-color 0.2s;
+    background-color: var(--btn-color);
+    color: #fff;
+    font-weight: 500;
+
+}
+
+.profile-button:hover {
+    background-color: var(--bg-color);
+    color: var(--btn-color);
+}
+
+.books-section {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.books-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.books-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.books-table th,
+.books-table td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.books-table thead th {
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid var(--btn-color);
+}
+
+.books-table tbody tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.book-thumb {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.book-desc {
+    font-size: 0.9rem;
+    color: #555;
+
+}
+
+.no-books {
+    font-style: italic;
+    color: #777;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Public Profile Page END */

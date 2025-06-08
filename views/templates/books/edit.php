@@ -12,7 +12,7 @@
 
             <div class="book-edition-image">
                 <label for="imageUrl">Image du livre :</label>
-                <input type="file" name="imageUrl" accept="image/*">
+                <input type="file" size="5000000" name="imageUrl" accept=".jpg, .jpeg, .png, .gif">
             </div>
 
             <div class="book-edition-field">
