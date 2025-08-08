@@ -87,7 +87,6 @@
                          alt="<?= htmlspecialchars_decode($b['title']) ?>">
                     <p class="account-book-list-item-title"><?= htmlspecialchars_decode($b['title']) ?></p>
                     <p class="account-book-list-item-author"><?= htmlspecialchars_decode($b['author']) ?></p>
-                    <p class="account-book-list-item-description"><?= Utils::truncate(htmlspecialchars_decode($b['description'])) ?></p>
                     <p class="account-book-list-item-status"><?= htmlspecialchars($b['status']) ?></p>
                     <a class="account-book-list-item-edit" href="<?= Utils::url('books', 'edit', [$b['id']]) ?>">Éditer</a>
                     <a class="account-book-list-item-delete"

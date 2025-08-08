@@ -35,7 +35,6 @@
                     <th>Photo</th>
                     <th>Titre</th>
                     <th>Auteur</th>
-                    <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,9 +53,6 @@
                             </a>
                         </td>
                         <td><?= htmlspecialchars_decode($b['author']) ?></td>
-                        <td class="book-desc">
-                            <?= Utils::truncate(nl2br(htmlspecialchars_decode($b['description']))) ?>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
