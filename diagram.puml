@@ -1,0 +1,63 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum Availability {
+    Available
+    Unavailable
+}
+
+class User {
+    +int {PK} id
+    +String username
+    +String email
+    +String password
+    +String avatarUrl
+    +String bio
+    -Boolean signUp()
+    -Boolean login()
+    -void modifyProfile()
+}
+
+class Book {
+    +int {PK} id
+    +int {FK} ownerId
+    +String title
+    +String author
+    +String imageUrl
+    +Text description
+    +Availability status
+    -Book create()
+    -void update()
+    -void changeStatus(newStatus : Availability)
+    -void delete()
+}
+
+class Conversation {
+    +int {PK} id
+    +int {FK} user1Id
+    +int {FK} user2Id
+    +DateTime startDate
+    -Conversation startConversation(user1 : User, user2 : User)
+}
+
+class Message {
+    +int {PK} id
+    +int {FK} conversationId
+    +int {FK} senderId
+    +int {FK} recipientId
+    +Text content
+    +DateTime timestamp
+    -void sendMessage(conversation : Conversation, user : User)
+    -void markAsRead()
+}
+
+/' Associations '/
+User "1" <|-- "*" Book      : owns
+Conversation "1" o-- "1" User : user1
+Conversation "1" o-- "1" User : user2
+Conversation "1" *-- "*" Message : contains
+Message "1" --> "1" User    : sender
+Message "1" --> "1" User    : recipient
+Book "0..*" --> "1" User    : owner
+
+@enduml
